@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   {% if title %}
+        <title>Flask Blog - {{ title }}</title>
+    {% else %}
+        <title>Flask Blog</title>
+    {% endif %}
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+            <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+            <script src="https://use.fontawesome.com/451851369b.js"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+      <div class="page-header">
+          <img src="media/images/logo.png" height="5%">
+        <a class="nav-link" href="/"><b>Strona główna</b></a>
+        <a class="nav-link" href="/"><b>Najnowsze artykuły</b></a>
+        <a class="nav-link" href="/contact"><b>Kontakt</b></a>
+      </div>
+    <div class="gora">
+    <p class="title"><b>Witam na stronie Kacpra</b></p>
+    <img class="baner" src="/media/images/banner.jpg"><br/><br/><br/>
+</div>
+</nav>
+{% block content %}{% endblock %}
+</body>
+</html>

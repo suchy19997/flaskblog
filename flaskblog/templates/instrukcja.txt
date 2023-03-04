@@ -1,0 +1,12 @@
+{% block title %} {% endblock %}: blok , który służy jako symbol zastępczy tytułu, później użyjesz go w innych szablonach, aby nadać niestandardowy tytuł każdej stronie w aplikacji bez konieczności przepisywania całej <head>sekcji za każdym razem.
+{{ url_for('index')}}: Wywołanie funkcji, które zwróci adres URL funkcji index()widoku. Różni się to od poprzedniego url_for()wywołania, którego użyłeś do połączenia statycznego pliku CSS, ponieważ wymaga tylko jednego argumentu, którym jest nazwa funkcji widoku, i łączy się z trasą powiązaną z funkcją zamiast pliku statycznego.
+{% block content %} {% endblock %}: Kolejny blok, który zostanie zastąpiony treścią w zależności od szablonu potomnego (szablony dziedziczące z base.html), który go zastąpi.
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
+{% endblock %}
