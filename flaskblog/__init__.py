@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 
 
@@ -13,5 +14,10 @@ bcrypt = Bcrypt(app)
 # db.create_all(app)
 with app.app_context():
     db.create_all()
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
+
 
 from flaskblog import routes
