@@ -3,8 +3,6 @@ from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '9ef0b2d7f636abd0015a9bc319294362'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
@@ -17,7 +15,7 @@ with app.app_context():
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
-login_manager.login_message_category = 'info'
+# login_manager.login_message_category = 'info'
 
 
 from flaskblog import routes
