@@ -4,9 +4,8 @@ from flask_login import UserMixin
 
 @login_manager.user_loader
 def load_user(user_id):
-    print("________________________________loaduser_______________________________")
-    user=User.query.get(int(user_id))
-    print("user:" ,user)
+    with app.app_context():
+        user=User.query.get(int(user_id))
     return user
 
 class User(db.Model,UserMixin):
@@ -27,8 +26,10 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    file = db.Column(db.String(20), nullable=True, default='default.jpg')
+
+
 
 
     def __repr__(self):
-        return f"Post('{self.title}', '{self.date_posted}')"
+        return f"Post('{self.title}', '{self.date_posted}', '{self.file}')"

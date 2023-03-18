@@ -42,7 +42,9 @@ a.article-title:hover {
 }
 
 .article-content {
+  width: 600px;
   white-space: pre-line;
+  overflow-wrap: break-word;
 }
 
 .article-img {
